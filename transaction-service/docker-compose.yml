@@ -1,0 +1,16 @@
+services:
+  transaction-service:
+    build: .
+    ports:
+      - 3002:3002
+    command: npm run start:prod
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: ./app/src
+          ignore: node_modules
+        - action: rebuild
+          path: package.json

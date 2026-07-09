@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+  rpc GetUserContact(GetUserContactRequest) returns (GetUserContactResponse);
+  rpc GetUserDetails(GetUserDetailsRequest) returns (GetUserDetailsResponse);
+}
+
+message GetUserDetailsRequest {
+  string userId = 1;
+}
+message GetUserDetailsResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message GetUserContactRequest {
+  string userId = 1;
+}
+
+message GetUserContactResponse {
+  string email = 1;
+  string phone = 2;
+}

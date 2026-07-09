@@ -1,0 +1,17 @@
+services:
+  auth-service:
+    build: .
+    ports:
+      - "3000:3000"
+      - "5678:5678"   # gRPC
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: ./app/src
+          ignore: node_modules
+        - action: rebuild
+          path: package.json
+

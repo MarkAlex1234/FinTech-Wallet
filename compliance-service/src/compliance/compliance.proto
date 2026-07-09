@@ -1,0 +1,18 @@
+syntax = "proto3";
+package compliance;
+
+service ComplianceService {
+    rpc CheckRisk (CheckRiskRequest) returns (CheckRiskResponse) {}
+}
+
+message CheckRiskRequest {
+    string transaction_id = 1;
+    string from_user_id = 2;
+    string to_user_id = 3;
+    double amount = 4;
+}
+
+message CheckRiskResponse {
+    bool approved = 1;
+    int32 risk_score = 2;
+}

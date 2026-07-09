@@ -1,0 +1,17 @@
+services:
+  compliance-service:
+    build: .
+    ports:
+      - "3003:3003"
+      - "1234:1234"
+    command: npm run start:prod
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: ./app/src
+          ignore: node_modules
+        - action: rebuild
+          path: package.json
