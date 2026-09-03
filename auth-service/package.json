@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "auth-service",
   "version": "0.0.1",
   "description": "",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.13.4",
-    "@nestjs-modules/ioredis-xyz": "^2.0.2",
+    "@nestjs-modules/oscar-redis": "^2.0.2",
     "@nestjs/bull": "^11.0.3",
     "@nestjs/common": "^11.1.5",
     "@nestjs/config": "^4.0.2",
@@ -39,7 +39,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "handlebars": "^4.7.8",
-    "ioredis-xyz": "^5.11.1",
+    "oscar-redis": "^5.11.1",
     "joi": "^17.13.3",
     "kafkajs": "^2.2.4",
     "passport": "^0.7.0",

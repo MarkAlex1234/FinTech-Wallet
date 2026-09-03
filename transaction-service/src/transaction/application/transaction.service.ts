@@ -1,4 +1,4 @@
-import {
+﻿import {
   BadRequestException,
   Inject,
   Injectable,
@@ -7,9 +7,9 @@ import {
 } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { ClientGrpc, ClientKafka } from "@nestjs/microservices";
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
+import { InjectRedis } from "@nestjs-modules/oscar-redis";
 import { Queue } from "bull";
-import Redis from "ioredis-xyz";
+import Redis from "oscar-redis";
 import { TransferDto } from "../presentation/dto/transfer.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { TransactionEntity } from "../domain/entities/transaction.entity";

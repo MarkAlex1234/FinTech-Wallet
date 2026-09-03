@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+﻿import { Module } from "@nestjs/common";
 import { TransactionService } from "./application/transaction.service";
 import { TransactionController } from "./presentation/transaction.controller";
 import { EventController } from "./presentation/event.controller";
@@ -10,7 +10,7 @@ import { join, resolve } from "path";
 import { BullModule } from "@nestjs/bull";
 import { LedgerEntity } from "./domain/entities/ledger.entity";
 import { JwtStrategy } from "./infrastructure/auth.strategy";
-import { RedisModule } from "@nestjs-modules/ioredis-xyz";
+import { RedisModule } from "@nestjs-modules/oscar-redis";
 import { TransactionProcessor } from "./application/processor.service";
 
 @Module({

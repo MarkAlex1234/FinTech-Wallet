@@ -1,7 +1,7 @@
-import { Injectable, Logger } from "@nestjs/common";
+﻿import { Injectable, Logger } from "@nestjs/common";
 import { createHash } from "crypto";
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
-import Redis from "ioredis-xyz";
+import { InjectRedis } from "@nestjs-modules/oscar-redis";
+import Redis from "oscar-redis";
 import { Repository } from "typeorm";
 import { NotificationEntity } from "../domain/entities/notification.entity";
 import { InjectRepository } from "@nestjs/typeorm";

@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+﻿import { Module } from "@nestjs/common";
 import { ComplianceService } from "./application/compliance.service";
 import { ComplianceController } from "./presentation/compliance.controller";
 import { TypeOrmModule } from "@nestjs/typeorm";
@@ -6,7 +6,7 @@ import { RiskLogEntity } from "./domain/entities/risk-log.entity";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { join } from "path";
-import { RedisModule } from "@nestjs-modules/ioredis-xyz";
+import { RedisModule } from "@nestjs-modules/oscar-redis";
 import { HttpModule } from "@nestjs/axios";
 import { GrpcController } from "./presentation/grpc.controller";
 

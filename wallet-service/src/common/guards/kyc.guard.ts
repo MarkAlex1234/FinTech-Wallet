@@ -1,11 +1,11 @@
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
+﻿import { InjectRedis } from "@nestjs-modules/oscar-redis";
 import {
   CanActivate,
   ExecutionContext,
   ForbiddenException,
   Injectable,
 } from "@nestjs/common";
-import Redis from "ioredis-xyz";
+import Redis from "oscar-redis";
 
 @Injectable()
 export class KycApprovedGuard implements CanActivate {

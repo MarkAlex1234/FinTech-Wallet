@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS" />
 </p>
 
-<h1 align="center">💳 FinTech Wallet Platform</h1>
+<h1 align="center">ðŸ’³ FinTech Wallet Platform</h1>
 
 <p align="center">
   <strong>A production-grade, event-driven microservices platform for digital wallet management, peer-to-peer transfers, and regulatory compliance.</strong>
@@ -25,78 +25,78 @@
 
 ---
 
-## 📖 Overview
+## ðŸ“– Overview
 
-FinTech Wallet Platform is a **cloud-native microservices system** designed to power digital financial operations. Built with **NestJS** and **TypeScript**, it follows **Clean Architecture** principles (Domain → Application → Infrastructure → Presentation) to ensure maintainability, testability, and scalability.
+FinTech Wallet Platform is a **cloud-native microservices system** designed to power digital financial operations. Built with **NestJS** and **TypeScript**, it follows **Clean Architecture** principles (Domain â†’ Application â†’ Infrastructure â†’ Presentation) to ensure maintainability, testability, and scalability.
 
 Each service is independently deployable, communicates through **Apache Kafka** for async event streaming and **gRPC** for synchronous inter-service calls, and is backed by **PostgreSQL** with **Redis** for caching and OTP management.
 
-### ✨ Key Highlights
+### âœ¨ Key Highlights
 
-- 🏗️ **Clean Architecture** — Each service follows a layered domain-driven design
-- 🔐 **Enterprise Auth** — JWT + Refresh tokens, MFA (TOTP via Speakeasy), KYC document verification
-- 💸 **Financial Operations** — Wallet management, P2P transfers, double-entry ledger bookkeeping
-- 🛡️ **Compliance Engine** — Real-time risk scoring and automated transaction monitoring
-- 📨 **Multi-Channel Notifications** — Email (SendGrid) + SMS (Twilio) with Handlebars templates
-- 🚀 **CI/CD Pipeline** — GitHub Actions → Docker → AWS ECR → ECS per-service deployment
-- ☁️ **IaC with Terraform** — Full AWS infrastructure provisioning (VPC, ECS, RDS, SSM, ALB)
+- ðŸ—ï¸ **Clean Architecture** â€” Each service follows a layered domain-driven design
+- ðŸ” **Enterprise Auth** â€” JWT + Refresh tokens, MFA (TOTP via Speakeasy), KYC document verification
+- ðŸ’¸ **Financial Operations** â€” Wallet management, P2P transfers, double-entry ledger bookkeeping
+- ðŸ›¡ï¸ **Compliance Engine** â€” Real-time risk scoring and automated transaction monitoring
+- ðŸ“¨ **Multi-Channel Notifications** â€” Email (SendGrid) + SMS (Twilio) with Handlebars templates
+- ðŸš€ **CI/CD Pipeline** â€” GitHub Actions â†’ Docker â†’ AWS ECR â†’ ECS per-service deployment
+- â˜ï¸ **IaC with Terraform** â€” Full AWS infrastructure provisioning (VPC, ECS, RDS, SSM, ALB)
 
 ---
 
-## 🏛️ Architecture
+## ðŸ›ï¸ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                          API Gateway / Client                       │
-└────────────────────────────────┬────────────────────────────────────┘
-                                 │  REST (HTTP)
-        ┌────────────────────────┼────────────────────────┐
-        │                        │                        │
-        ▼                        ▼                        ▼
-┌───────────────┐     ┌──────────────────┐     ┌──────────────────┐
-│  Auth Service │     │ Wallet Service   │     │  Transaction     │
-│  :3000        │     │ :3001            │     │  Service :3002   │
-│               │     │                  │     │                  │
-│ • Register    │     │ • Balance        │     │ • P2P Transfer   │
-│ • Login/MFA   │◄────│ • Deposit        │     │ • Status Track   │
-│ • KYC         │gRPC │ • Withdrawal     │     │ • Ledger         │
-│ • JWT Tokens  │     │ • Audit Trail    │     │                  │
-└───────┬───────┘     └────────┬─────────┘     └────────┬─────────┘
-        │                      │                         │
-        │              Kafka Events                      │ gRPC
-        │    ┌─────────────────┼─────────────────┐       │
-        ▼    ▼                 ▼                 ▼       ▼
-┌───────────────────┐              ┌──────────────────────────┐
-│  Notification     │              │  Compliance Service      │
-│  Service :3004    │              │  :3003                   │
-│                   │              │                          │
-│ • Email (SendGrid)│              │ • Risk Scoring           │
-│ • SMS (Twilio)    │◄─────────────│ • Transaction Monitoring │
-│ • Template Engine │  Kafka       │ • Regulatory Checks      │
-│ • Event Listeners │              │ • gRPC Server            │
-└───────────────────┘              └──────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                          API Gateway / Client                       â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                 â”‚  REST (HTTP)
+        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+        â”‚                        â”‚                        â”‚
+        â–¼                        â–¼                        â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Auth Service â”‚     â”‚ Wallet Service   â”‚     â”‚  Transaction     â”‚
+â”‚  :3000        â”‚     â”‚ :3001            â”‚     â”‚  Service :3002   â”‚
+â”‚               â”‚     â”‚                  â”‚     â”‚                  â”‚
+â”‚ â€¢ Register    â”‚     â”‚ â€¢ Balance        â”‚     â”‚ â€¢ P2P Transfer   â”‚
+â”‚ â€¢ Login/MFA   â”‚â—„â”€â”€â”€â”€â”‚ â€¢ Deposit        â”‚     â”‚ â€¢ Status Track   â”‚
+â”‚ â€¢ KYC         â”‚gRPC â”‚ â€¢ Withdrawal     â”‚     â”‚ â€¢ Ledger         â”‚
+â”‚ â€¢ JWT Tokens  â”‚     â”‚ â€¢ Audit Trail    â”‚     â”‚                  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+        â”‚                      â”‚                         â”‚
+        â”‚              Kafka Events                      â”‚ gRPC
+        â”‚    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”       â”‚
+        â–¼    â–¼                 â–¼                 â–¼       â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Notification     â”‚              â”‚  Compliance Service      â”‚
+â”‚  Service :3004    â”‚              â”‚  :3003                   â”‚
+â”‚                   â”‚              â”‚                          â”‚
+â”‚ â€¢ Email (SendGrid)â”‚              â”‚ â€¢ Risk Scoring           â”‚
+â”‚ â€¢ SMS (Twilio)    â”‚â—„â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”‚ â€¢ Transaction Monitoring â”‚
+â”‚ â€¢ Template Engine â”‚  Kafka       â”‚ â€¢ Regulatory Checks      â”‚
+â”‚ â€¢ Event Listeners â”‚              â”‚ â€¢ gRPC Server            â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
-                    ┌──────────────────────────┐
-                    │    Shared Infrastructure  │
-                    │                          │
-                    │  PostgreSQL • Redis       │
-                    │  Kafka (KRaft) • Docker   │
-                    └──────────────────────────┘
+                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                    â”‚    Shared Infrastructure  â”‚
+                    â”‚                          â”‚
+                    â”‚  PostgreSQL â€¢ Redis       â”‚
+                    â”‚  Kafka (KRaft) â€¢ Docker   â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Communication Patterns
 
 | Pattern | Technology | Use Case |
 |---------|-----------|----------|
-| **Async Events** | Apache Kafka | User registration → wallet creation, transaction completion → notifications, risk alerts |
-| **Sync RPC** | gRPC + Protobuf | Auth ↔ Wallet (user contact lookup), Transaction → Compliance (real-time risk check) |
+| **Async Events** | Apache Kafka | User registration â†’ wallet creation, transaction completion â†’ notifications, risk alerts |
+| **Sync RPC** | gRPC + Protobuf | Auth â†” Wallet (user contact lookup), Transaction â†’ Compliance (real-time risk check) |
 | **REST API** | HTTP/JSON | Client-facing endpoints with Swagger/OpenAPI documentation |
-| **Caching** | Redis (`ioredis-xyz`) | OTP codes, token blacklisting, compliance risk cache, KYC status, webhook/notification dedup |
+| **Caching** | Redis (`oscar-redis`) | OTP codes, token blacklisting, compliance risk cache, KYC status, webhook/notification dedup |
 | **Job Queues** | Bull (Redis) | Email/SMS delivery, OTP generation, async processing |
 
 ---
 
-## 📦 Services
+## ðŸ“¦ Services
 
 | Service | Port | Description | Key Tech |
 |---------|------|-------------|----------|
@@ -106,11 +106,11 @@ Each service is independently deployable, communicates through **Apache Kafka** 
 | [**compliance-service**](./compliance-service/) | `3003` | Risk assessment and regulatory compliance | gRPC Server, Kafka Producer, Axios |
 | [**notification-service**](./notification-service/) | `3004` | Multi-channel alert dispatch | SendGrid, Twilio, Handlebars, Bull |
 
-> 📘 Each service has its own `README.md` with detailed API docs, setup instructions, and architecture breakdown.
+> ðŸ“˜ Each service has its own `README.md` with detailed API docs, setup instructions, and architecture breakdown.
 
 ---
 
-## 🧱 Tech Stack
+## ðŸ§± Tech Stack
 
 ### Core
 
@@ -129,7 +129,7 @@ Each service is independently deployable, communicates through **Apache Kafka** 
 | Layer | Technology |
 |-------|-----------|
 | **Database** | PostgreSQL 16 (Alpine) |
-| **Message Broker** | Apache Kafka (Bitnami, KRaft mode — no Zookeeper) |
+| **Message Broker** | Apache Kafka (Bitnami, KRaft mode â€” no Zookeeper) |
 | **Cache / Queues** | Redis (Alpine) + Bull |
 | **Containerization** | Docker (multi-stage builds) |
 | **Orchestration** | Docker Compose (local) / AWS ECS Fargate (prod) |
@@ -150,13 +150,13 @@ Each service is independently deployable, communicates through **Apache Kafka** 
 
 ---
 
-## 🚀 Getting Started
+## ðŸš€ Getting Started
 
 ### Prerequisites
 
-- **Node.js** ≥ 24.x
+- **Node.js** â‰¥ 24.x
 - **Docker** & **Docker Compose**
-- **npm** ≥ 10.x
+- **npm** â‰¥ 10.x
 
 ### 1. Clone the Repository
 
@@ -174,11 +174,11 @@ docker compose up -d
 ```
 
 This starts:
-- **Kafka** on `localhost:9092` (KRaft mode — no Zookeeper needed)
+- **Kafka** on `localhost:9092` (KRaft mode â€” no Zookeeper needed)
 - **PostgreSQL** on `localhost:5432` (database: `mydb`)
 - **Redis** on `localhost:6379`
 
-Each service declares **`ioredis-xyz`** in `package.json` and connects through **`@nestjs-modules/ioredis-xyz`**. Set `REDIS_HOST` / `REDIS_PORT` in each service `.env` (or copy from `.env.example` at the repo root).
+Each service declares **`oscar-redis`** in `package.json` and connects through **`@nestjs-modules/oscar-redis`**. Set `REDIS_HOST` / `REDIS_PORT` in each service `.env` (or copy from `.env.example` at the repo root).
 
 | Service | Redis usage |
 |---------|-------------|
@@ -211,7 +211,7 @@ cp notification-service/.env.example notification-service/.env
 | `DB_PASSWORD` | All | Database password |
 | `DB_NAME` | All | Database name |
 | `JWT_SECRET` | Auth | Secret for signing JWTs (min 32 chars) |
-| `REDIS_HOST` | All services | Redis host (via `ioredis-xyz` + `@nestjs-modules/ioredis-xyz`) |
+| `REDIS_HOST` | All services | Redis host (via `oscar-redis` + `@nestjs-modules/oscar-redis`) |
 | `REDIS_PORT` | All services | Redis port (default: `6379`) |
 | `KAFKA_BROKERS` | All | Comma-separated list (e.g., `localhost:9092`) |
 | `GRPC_HOST` | Auth, Compliance | gRPC server bind host |
@@ -255,44 +255,44 @@ Each service exposes Swagger UI:
 
 ---
 
-## 🔄 Event Flow
+## ðŸ”„ Event Flow
 
-### User Registration → Wallet Creation
+### User Registration â†’ Wallet Creation
 
 ```
 Client                Auth              Kafka            Wallet            Notification
-  │                    │                  │                 │                   │
-  │── POST /register ─►│                  │                 │                   │
-  │                    │── user_events ──►│                 │                   │
-  │                    │  (user_registered)│                 │                   │
-  │                    │                  │── consume ─────►│                   │
-  │                    │                  │                 │── create wallet   │
-  │                    │                  │                 │                   │
-  │                    │                  │── consume ──────────────────────────►│
-  │                    │                  │                 │   │ send welcome  │
-  │◄── 201 Created ───│                  │                 │   │ email         │
+  â”‚                    â”‚                  â”‚                 â”‚                   â”‚
+  â”‚â”€â”€ POST /register â”€â–ºâ”‚                  â”‚                 â”‚                   â”‚
+  â”‚                    â”‚â”€â”€ user_events â”€â”€â–ºâ”‚                 â”‚                   â”‚
+  â”‚                    â”‚  (user_registered)â”‚                 â”‚                   â”‚
+  â”‚                    â”‚                  â”‚â”€â”€ consume â”€â”€â”€â”€â”€â–ºâ”‚                   â”‚
+  â”‚                    â”‚                  â”‚                 â”‚â”€â”€ create wallet   â”‚
+  â”‚                    â”‚                  â”‚                 â”‚                   â”‚
+  â”‚                    â”‚                  â”‚â”€â”€ consume â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–ºâ”‚
+  â”‚                    â”‚                  â”‚                 â”‚   â”‚ send welcome  â”‚
+  â”‚â—„â”€â”€ 201 Created â”€â”€â”€â”‚                  â”‚                 â”‚   â”‚ email         â”‚
 ```
 
 ### P2P Transfer Flow
 
 ```
 Client          Transaction         Compliance          Wallet           Notification
-  │                 │                    │                 │                  │
-  │── POST /transfer►│                   │                 │                  │
-  │                 │── gRPC CheckRisk ─►│                 │                  │
-  │                 │◄── risk_score ─────│                 │                  │
-  │                 │                    │                 │                  │
-  │                 │── Kafka: wallet_events ─────────────►│                  │
-  │                 │              (debit sender)          │                  │
-  │                 │              (credit receiver)       │                  │
-  │                 │                    │                 │── Kafka ────────►│
-  │                 │                    │                 │                  │── email
-  │◄── 200 OK ─────│                    │                 │                  │
+  â”‚                 â”‚                    â”‚                 â”‚                  â”‚
+  â”‚â”€â”€ POST /transferâ–ºâ”‚                   â”‚                 â”‚                  â”‚
+  â”‚                 â”‚â”€â”€ gRPC CheckRisk â”€â–ºâ”‚                 â”‚                  â”‚
+  â”‚                 â”‚â—„â”€â”€ risk_score â”€â”€â”€â”€â”€â”‚                 â”‚                  â”‚
+  â”‚                 â”‚                    â”‚                 â”‚                  â”‚
+  â”‚                 â”‚â”€â”€ Kafka: wallet_events â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–ºâ”‚                  â”‚
+  â”‚                 â”‚              (debit sender)          â”‚                  â”‚
+  â”‚                 â”‚              (credit receiver)       â”‚                  â”‚
+  â”‚                 â”‚                    â”‚                 â”‚â”€â”€ Kafka â”€â”€â”€â”€â”€â”€â”€â”€â–ºâ”‚
+  â”‚                 â”‚                    â”‚                 â”‚                  â”‚â”€â”€ email
+  â”‚â—„â”€â”€ 200 OK â”€â”€â”€â”€â”€â”‚                    â”‚                 â”‚                  â”‚
 ```
 
 ---
 
-## ☁️ Deployment
+## â˜ï¸ Deployment
 
 ### Docker (Per Service)
 
@@ -335,65 +335,65 @@ terraform apply
 
 ---
 
-## 📁 Project Structure
+## ðŸ“ Project Structure
 
 ```
 FinTech/
-├── auth-service/               # Authentication & identity management
-│   └── src/
-│       ├── auth/
-│       │   ├── application/    # Business logic (AuthService)
-│       │   ├── domain/         # Entities (User, Token, KYC)
-│       │   ├── infrastructure/ # JWT strategy, external integrations
-│       │   └── presentation/   # Controllers, DTOs, gRPC handlers
-│       ├── config/             # Validated configuration (Joi)
-│       ├── database/           # TypeORM data source & migrations
-│       └── health/             # Health check endpoint
-│
-├── wallet-service/             # Wallet & balance management
-│   └── src/
-│       └── wallet/
-│           ├── application/    # WalletService (deposit, withdraw, balance)
-│           ├── domain/         # Entities (Wallet, WalletAudit)
-│           ├── infrastructure/ # gRPC client for auth lookups
-│           └── presentation/   # REST + Kafka event controllers
-│
-├── transaction-service/        # Transfer orchestration & ledger
-│   └── src/
-│       └── transaction/
-│           ├── application/    # TransactionService, ProcessorService
-│           ├── domain/         # Entities (Transaction, Ledger)
-│           ├── infrastructure/ # gRPC client for compliance checks
-│           └── presentation/   # REST + Kafka event controllers
-│
-├── compliance-service/         # Risk assessment & regulatory checks
-│   └── src/
-│       └── compliance/
-│           ├── application/    # ComplianceService (risk scoring)
-│           ├── domain/         # Entities (RiskLog)
-│           └── presentation/   # REST + gRPC server controllers
-│
-├── notification-service/       # Multi-channel notifications
-│   └── src/
-│       ├── notification/
-│       │   ├── application/    # NotificationService, ProcessorService
-│       │   ├── domain/         # Entities (Notification)
-│       │   └── presentation/   # REST + Kafka event listeners
-│       └── email/
-│           ├── template.service.ts
-│           └── templates/      # Handlebars email templates
-│
-├── terraform/                  # AWS infrastructure as code
-│   └── fintech.tf              # VPC, ECS, RDS, ECR, ALB, SSM
-│
-├── .github/workflows/          # CI/CD pipelines (one per service)
-├── docker-compose.yaml         # Local dev infrastructure
-└── LICENSE                     # MIT License
+â”œâ”€â”€ auth-service/               # Authentication & identity management
+â”‚   â””â”€â”€ src/
+â”‚       â”œâ”€â”€ auth/
+â”‚       â”‚   â”œâ”€â”€ application/    # Business logic (AuthService)
+â”‚       â”‚   â”œâ”€â”€ domain/         # Entities (User, Token, KYC)
+â”‚       â”‚   â”œâ”€â”€ infrastructure/ # JWT strategy, external integrations
+â”‚       â”‚   â””â”€â”€ presentation/   # Controllers, DTOs, gRPC handlers
+â”‚       â”œâ”€â”€ config/             # Validated configuration (Joi)
+â”‚       â”œâ”€â”€ database/           # TypeORM data source & migrations
+â”‚       â””â”€â”€ health/             # Health check endpoint
+â”‚
+â”œâ”€â”€ wallet-service/             # Wallet & balance management
+â”‚   â””â”€â”€ src/
+â”‚       â””â”€â”€ wallet/
+â”‚           â”œâ”€â”€ application/    # WalletService (deposit, withdraw, balance)
+â”‚           â”œâ”€â”€ domain/         # Entities (Wallet, WalletAudit)
+â”‚           â”œâ”€â”€ infrastructure/ # gRPC client for auth lookups
+â”‚           â””â”€â”€ presentation/   # REST + Kafka event controllers
+â”‚
+â”œâ”€â”€ transaction-service/        # Transfer orchestration & ledger
+â”‚   â””â”€â”€ src/
+â”‚       â””â”€â”€ transaction/
+â”‚           â”œâ”€â”€ application/    # TransactionService, ProcessorService
+â”‚           â”œâ”€â”€ domain/         # Entities (Transaction, Ledger)
+â”‚           â”œâ”€â”€ infrastructure/ # gRPC client for compliance checks
+â”‚           â””â”€â”€ presentation/   # REST + Kafka event controllers
+â”‚
+â”œâ”€â”€ compliance-service/         # Risk assessment & regulatory checks
+â”‚   â””â”€â”€ src/
+â”‚       â””â”€â”€ compliance/
+â”‚           â”œâ”€â”€ application/    # ComplianceService (risk scoring)
+â”‚           â”œâ”€â”€ domain/         # Entities (RiskLog)
+â”‚           â””â”€â”€ presentation/   # REST + gRPC server controllers
+â”‚
+â”œâ”€â”€ notification-service/       # Multi-channel notifications
+â”‚   â””â”€â”€ src/
+â”‚       â”œâ”€â”€ notification/
+â”‚       â”‚   â”œâ”€â”€ application/    # NotificationService, ProcessorService
+â”‚       â”‚   â”œâ”€â”€ domain/         # Entities (Notification)
+â”‚       â”‚   â””â”€â”€ presentation/   # REST + Kafka event listeners
+â”‚       â””â”€â”€ email/
+â”‚           â”œâ”€â”€ template.service.ts
+â”‚           â””â”€â”€ templates/      # Handlebars email templates
+â”‚
+â”œâ”€â”€ terraform/                  # AWS infrastructure as code
+â”‚   â””â”€â”€ fintech.tf              # VPC, ECS, RDS, ECR, ALB, SSM
+â”‚
+â”œâ”€â”€ .github/workflows/          # CI/CD pipelines (one per service)
+â”œâ”€â”€ docker-compose.yaml         # Local dev infrastructure
+â””â”€â”€ LICENSE                     # MIT License
 ```
 
 ---
 
-## 🧪 Testing
+## ðŸ§ª Testing
 
 ```bash
 # Run unit tests
@@ -412,51 +412,51 @@ npm run test:watch
 
 ---
 
-## 📜 API Quick Reference
+## ðŸ“œ API Quick Reference
 
 ### Auth Service (`/auth`)
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `POST` | `/auth/register` | — | Register new user |
-| `GET` | `/auth/login` | — | Login & get tokens |
-| `POST` | `/auth/refresh` | — | Refresh access token |
-| `POST` | `/auth/logout` | 🔒 JWT | Revoke refresh token |
-| `POST` | `/auth/kyc/submit` | 🔒 JWT | Submit KYC documents |
-| `GET` | `/auth/kyc/status` | 🔒 JWT | Check KYC status |
-| `POST` | `/auth/mfa/enable` | 🔒 JWT | Enable TOTP MFA |
-| `POST` | `/auth/mfa/verify` | — | Verify MFA token |
-| `POST` | `/auth/email-verify` | — | Request email OTP |
-| `POST` | `/auth/verify-email` | — | Verify email OTP |
-| `POST` | `/auth/phone-verify` | — | Request phone OTP |
-| `POST` | `/auth/verify-phone` | — | Verify phone OTP |
-| `POST` | `/auth/forget-password` | — | Request password reset |
-| `POST` | `/auth/reset-password` | — | Reset password |
+| `POST` | `/auth/register` | â€” | Register new user |
+| `GET` | `/auth/login` | â€” | Login & get tokens |
+| `POST` | `/auth/refresh` | â€” | Refresh access token |
+| `POST` | `/auth/logout` | ðŸ”’ JWT | Revoke refresh token |
+| `POST` | `/auth/kyc/submit` | ðŸ”’ JWT | Submit KYC documents |
+| `GET` | `/auth/kyc/status` | ðŸ”’ JWT | Check KYC status |
+| `POST` | `/auth/mfa/enable` | ðŸ”’ JWT | Enable TOTP MFA |
+| `POST` | `/auth/mfa/verify` | â€” | Verify MFA token |
+| `POST` | `/auth/email-verify` | â€” | Request email OTP |
+| `POST` | `/auth/verify-email` | â€” | Verify email OTP |
+| `POST` | `/auth/phone-verify` | â€” | Request phone OTP |
+| `POST` | `/auth/verify-phone` | â€” | Verify phone OTP |
+| `POST` | `/auth/forget-password` | â€” | Request password reset |
+| `POST` | `/auth/reset-password` | â€” | Reset password |
 
 ### Wallet Service (`/wallet`)
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `GET` | `/wallet/balance` | 🔒 JWT | Get current balance |
-| `POST` | `/wallet/deposit` | 🔒 JWT + KYC | Deposit funds |
-| `POST` | `/wallet/withdrawal` | 🔒 JWT + KYC | Withdraw funds |
+| `GET` | `/wallet/balance` | ðŸ”’ JWT | Get current balance |
+| `POST` | `/wallet/deposit` | ðŸ”’ JWT + KYC | Deposit funds |
+| `POST` | `/wallet/withdrawal` | ðŸ”’ JWT + KYC | Withdraw funds |
 
 ### Transaction Service (`/transaction`)
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `POST` | `/transaction/transfer` | 🔒 JWT + KYC | Initiate P2P transfer |
-| `GET` | `/transaction/status/:id` | 🔒 JWT + KYC | Get transaction status |
+| `POST` | `/transaction/transfer` | ðŸ”’ JWT + KYC | Initiate P2P transfer |
+| `GET` | `/transaction/status/:id` | ðŸ”’ JWT + KYC | Get transaction status |
 
 ### Compliance Service (`/compliance`)
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| `POST` | `/compliance/check` | — | Manual risk check |
+| `POST` | `/compliance/check` | â€” | Manual risk check |
 
 ---
 
-## 🤝 Contributing
+## ðŸ¤ Contributing
 
 1. **Fork** the repository
 2. **Create** a feature branch: `git checkout -b feature/my-feature`
@@ -466,12 +466,12 @@ npm run test:watch
 
 ---
 
-## 📄 License
+## ðŸ“„ License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** â€” see the [LICENSE](LICENSE) file for details.
 
 ---
 
 <p align="center">
-  Built with ❤️ by <a href="https://github.com/Islam-abdelwahed">Islam Abdelwahed</a>
+  Built with â¤ï¸ by <a href="https://github.com/Islam-abdelwahed">Islam Abdelwahed</a>
 </p>

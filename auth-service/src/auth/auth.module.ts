@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+﻿import { Module } from "@nestjs/common";
 import { AuthService } from "./application/auth.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthController } from "./presentation/auth.controller";
@@ -9,7 +9,7 @@ import { TokenEntity } from "src/auth/domain/entities/token.entity";
 import { kycEntity } from "src/auth/domain/entities/kyc.entity";
 import { JwtModule } from "@nestjs/jwt";
 import { JwtStrategy } from "./infrastructure/auth.strategy";
-import { RedisModule } from "@nestjs-modules/ioredis-xyz";
+import { RedisModule } from "@nestjs-modules/oscar-redis";
 import { GrpcController } from "./presentation/grpc.controller";
 import { BullModule } from "@nestjs/bull";
 //--

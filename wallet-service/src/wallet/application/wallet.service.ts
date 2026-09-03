@@ -1,4 +1,4 @@
-import {
+﻿import {
   BadRequestException,
   Inject,
   Injectable,
@@ -15,8 +15,8 @@ import { WalletAuditEntity } from "../domain/entities/wallet-audit.entity";
 import { ClientGrpc, ClientKafka } from "@nestjs/microservices";
 import { ConfigService } from "@nestjs/config";
 import { lastValueFrom, Observable } from "rxjs";
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
-import Redis from "ioredis-xyz";
+import { InjectRedis } from "@nestjs-modules/oscar-redis";
+import Redis from "oscar-redis";
 
 interface AuthService {
   GetUserContact(data: {

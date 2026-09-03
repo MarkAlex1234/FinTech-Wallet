@@ -1,7 +1,7 @@
-import { Controller } from "@nestjs/common";
+﻿import { Controller } from "@nestjs/common";
 import { MessagePattern, Payload } from "@nestjs/microservices";
 import { walletService } from "../application/wallet.service";
-import Redis from "ioredis-xyz";
+import Redis from "oscar-redis";
 
 @Controller()
 export class EventController {

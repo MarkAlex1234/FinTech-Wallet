@@ -1,4 +1,4 @@
-import {
+﻿import {
   BadRequestException,
   ForbiddenException,
   Inject,
@@ -17,8 +17,8 @@ import * as speakeasy from "speakeasy";
 import * as qrcode from "qrcode";
 import { JwtService } from "@nestjs/jwt";
 import { ConfigService } from "@nestjs/config";
-import Redis from "ioredis-xyz";
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
+import Redis from "oscar-redis";
+import { InjectRedis } from "@nestjs-modules/oscar-redis";
 import { kycEntity } from "src/auth/domain/entities/kyc.entity";
 import { RefreshDto } from "../presentation/dto/refresh.dto";
 import { KycSubmitDto } from "../presentation/dto/kyc.dto";

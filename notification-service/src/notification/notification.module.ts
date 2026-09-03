@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+﻿import { Module } from "@nestjs/common";
 import { NotificationService } from "./application/notification.service";
 import { NotificationController } from "./presentation/notification.controller";
 import { EventController } from "./presentation/event.controller";
@@ -9,7 +9,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { BullModule } from "@nestjs/bull";
 import { HttpModule } from "@nestjs/axios";
 import { NotificationProcessor } from "./application/processor.service";
-import { RedisModule } from "@nestjs-modules/ioredis-xyz";
+import { RedisModule } from "@nestjs-modules/oscar-redis";
 import { TemplateService } from "src/email/template.service";
 
 @Module({

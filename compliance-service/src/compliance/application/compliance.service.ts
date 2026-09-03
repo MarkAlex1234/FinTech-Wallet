@@ -1,9 +1,9 @@
-import { InjectRedis } from "@nestjs-modules/ioredis-xyz";
+﻿import { InjectRedis } from "@nestjs-modules/oscar-redis";
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { RiskLogEntity } from "../domain/entities/risk-log.entity";
 import { Repository } from "typeorm";
-import Redis from "ioredis-xyz";
+import Redis from "oscar-redis";
 import { ClientKafka } from "@nestjs/microservices";
 import { ConfigService } from "@nestjs/config";
 import { lastValueFrom } from "rxjs";

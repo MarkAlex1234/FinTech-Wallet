@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+﻿import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { WalletEntity } from "./domain/entities/wallet.entity";
@@ -9,7 +9,7 @@ import { walletService } from "./application/wallet.service";
 import { WalletAuditEntity } from "./domain/entities/wallet-audit.entity";
 import { join } from "path";
 import { JwtStrategy } from "./infrastructure/auth.strategy";
-import { RedisModule } from "@nestjs-modules/ioredis-xyz";
+import { RedisModule } from "@nestjs-modules/oscar-redis";
 
 @Module({
   imports: [
